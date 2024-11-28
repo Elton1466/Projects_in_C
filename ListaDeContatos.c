@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <locale.h>
-
 #define MAX_CONTATOS 100
 
 // Estrutura para armazenar os dados de um contato
