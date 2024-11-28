@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-
 #define N 10
 
 int FILA[N], PILHA[N];
