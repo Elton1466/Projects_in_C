@@ -4,6 +4,14 @@
 #include <locale.h>
 #define MAX_CONTATOS 100
 
+/*
+ * Programa: Agenda de Contatos
+ * Objetivo: Este programa é uma aplicação em C que permite gerenciar uma agenda de contatos.
+ * Ele possibilita adicionar, editar, buscar, listar e excluir contatos. Além disso, permite 
+ * salvar os dados cadastrados em um arquivo de texto para consulta posterior. A lista de 
+ * contatos é organizada em ordem alfabética para facilitar a navegação.
+ */
+
 // Estrutura para armazenar os dados de um contato
 struct Agenda {
     char nome[1000];
