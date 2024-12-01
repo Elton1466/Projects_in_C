@@ -1,3 +1,58 @@
+/*
+=================================================================================
+                        GERENCIADOR DE FILA E PILHA
+=================================================================================
+
+Este programa implementa um sistema para gerenciar duas estruturas de dados:
+uma **fila** e uma **pilha**, ambas com capacidade fixa definida pela constante `N`.
+
+A estrutura geral do programa é organizada em funções para facilitar a manutenção
+e a reutilização do código, oferecendo funcionalidades completas para manipulação
+dessas estruturas. O programa também possui menus interativos para o usuário
+navegar e realizar operações nas duas estruturas.
+
+**Principais funcionalidades:**
+1. **Fila:**
+   - Inserir elementos na fila (enfileiramento).
+   - Remover elementos da fila (desenfileiramento).
+   - Exibir todos os elementos presentes na fila.
+   - Verificar se a fila está cheia ou vazia.
+   - Localizar um elemento específico na fila.
+
+2. **Pilha:**
+   - Inserir elementos na pilha (push).
+   - Remover elementos da pilha (pop).
+   - Exibir todos os elementos da pilha, indicando o topo.
+   - Verificar se a pilha está cheia ou vazia.
+
+3. **Menus interativos:**
+   - Menu principal para escolha entre as estruturas de fila e pilha.
+   - Menus específicos para as operações de cada estrutura.
+
+**Regras das estruturas de dados:**
+- **Fila (FIFO - First In, First Out):**
+  A fila segue a política de "primeiro a entrar, primeiro a sair". Os elementos
+  são inseridos no final e removidos do início.
+
+- **Pilha (LIFO - Last In, First Out):**
+  A pilha segue a política de "último a entrar, primeiro a sair". Os elementos
+  são inseridos no topo e também removidos do topo.
+
+**Detalhes técnicos:**
+- O programa utiliza arrays para armazenar os elementos da fila e da pilha.
+- As operações de inserção e remoção verificam previamente se as estruturas
+  estão cheias ou vazias, evitando erros de acesso à memória.
+- A interface foi projetada para ser intuitiva e fornecer mensagens claras ao
+  usuário sobre o estado das estruturas (cheias, vazias, ocupação percentual).
+
+**Finalidade:**
+Este programa é um exemplo prático de manipulação de estruturas de dados
+básicas em C, sendo útil tanto para fins educacionais quanto para aplicações
+simples que exijam gerenciamento de filas e pilhas.
+
+=================================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
