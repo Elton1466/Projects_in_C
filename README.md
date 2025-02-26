@@ -1,4 +1,4 @@
-REPOSITÓRIO DE PROJETOS ACADÊMICOS
+# REPOSITÓRIO DE PROJETOS ACADÊMICOS
 
 Este repositório foi criado para armazenar pequenos projetos desenvolvidos durante minha trajetória acadêmica. Aqui, reúno exemplos práticos que aplicam conceitos estudados em disciplinas, com o objetivo de aprofundar meu conhecimento e explorar diferentes áreas da computação.
 
