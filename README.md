@@ -10,8 +10,6 @@ Os projetos abrangem temas como:
 
  •	Desenvolvimento de software;
 	
- •	Linguagens de programação (como Python, C e outras);
-	
  •	Lógica de programação e resolução de problemas.
 
 
