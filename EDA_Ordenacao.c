@@ -4,6 +4,16 @@
 #include <unistd.h>
 #define TAM 7 
 
+/*
+Descrição:
+Este código é um programa em C que permite ao usuário criar um vetor de números inteiros e escolher entre diferentes métodos de ordenação para organizar os elementos do vetor. 
+Os métodos de ordenação implementados incluem BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort e HeapSort. O programa exibe o passo a passo da ordenação, 
+facilitando a compreensão do funcionamento de cada algoritmo.
+
+O código foi desenvolvido para fins educacionais e pode ser utilizado como referência para estudos sobre algoritmos de ordenação. 
+Sinta-se à vontade para contribuir, sugerir melhorias ou reportar problemas no repositório.
+*/
+
 int vetorA[TAM], vetorB[TAM];
 
 // Função para criar um vetor com valores inseridos pelo usuário
@@ -16,26 +26,26 @@ void criarVetor() {
 }
 
 // Função para exibir o vetor atual
-void exibir(int a[], int size) {
-    for(int i = 0; i < size; i++) { 
-        printf("| %i ", a[i]);
+void exibir(int vetor[], int tamanho) {
+    for(int i = 0; i < tamanho; i++) { 
+        printf("| %i ", vetor[i]);
     }  
     printf("\n");
 } 
 
 // BubbleSort
-void bubbleSort(int b[], int size) {
-    int aux, a[size];
-    memcpy(a, b, size * sizeof(int));
+void bubbleSort(int vetorOriginal[], int tamanho) {
+    int aux, vetorCopia[tamanho];
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo BubbleSort\n");
-    for (int i = 0; i < size - 1; i++) { 
-        for (int j = 0; j < size - i - 1; j++) { 
-            if (a[j] > a[j + 1]) {
-                aux = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = aux;
+    for (int i = 0; i < tamanho - 1; i++) { 
+        for (int j = 0; j < tamanho - i - 1; j++) { 
+            if (vetorCopia[j] > vetorCopia[j + 1]) {
+                aux = vetorCopia[j];
+                vetorCopia[j] = vetorCopia[j + 1];
+                vetorCopia[j + 1] = aux;
             }
-            exibir(a, size);
+            exibir(vetorCopia, tamanho);
             sleep(1);
         }
     }
@@ -43,148 +53,148 @@ void bubbleSort(int b[], int size) {
 } 
 
 // SelectionSort
-void selectSort(int b[], int size) {
-    int a[size], minIdx, temp;
-    memcpy(a, b, size * sizeof(int));
+void selectSort(int vetorOriginal[], int tamanho) {
+    int vetorCopia[tamanho], indiceMinimo, temp;
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo SelectSort\n");
-    for (int i = 0; i < size - 1; i++) {
-        minIdx = i;
-        for (int j = i + 1; j < size; j++) {
-            if (a[j] < a[minIdx]) {
-                minIdx = j;
+    for (int i = 0; i < tamanho - 1; i++) {
+        indiceMinimo = i;
+        for (int j = i + 1; j < tamanho; j++) {
+            if (vetorCopia[j] < vetorCopia[indiceMinimo]) {
+                indiceMinimo = j;
             }
         }
-        temp = a[minIdx];
-        a[minIdx] = a[i];
-        a[i] = temp;
-        exibir(a, size);
+        temp = vetorCopia[indiceMinimo];
+        vetorCopia[indiceMinimo] = vetorCopia[i];
+        vetorCopia[i] = temp;
+        exibir(vetorCopia, tamanho);
         sleep(1);
     }
     puts("\nPressione ENTER para continuar..."); getchar();
 }
 
 // InsertionSort
-void insertSort(int b[], int size) {
-    int a[size], key, j;
-    memcpy(a, b, size * sizeof(int));
+void insertSort(int vetorOriginal[], int tamanho) {
+    int vetorCopia[tamanho], chave, j;
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo InsertSort\n");
-    for (int i = 1; i < size; i++) {
-        key = a[i];
+    for (int i = 1; i < tamanho; i++) {
+        chave = vetorCopia[i];
         j = i - 1;
-        while (j >= 0 && a[j] > key) {
-            a[j + 1] = a[j];
+        while (j >= 0 && vetorCopia[j] > chave) {
+            vetorCopia[j + 1] = vetorCopia[j];
             j--;
         }
-        a[j + 1] = key;
-        exibir(a, size);
+        vetorCopia[j + 1] = chave;
+        exibir(vetorCopia, tamanho);
         sleep(1);
     }
     puts("\nPressione ENTER para continuar..."); getchar();
 }
 
 // Funções auxiliares para MergeSort
-void merge(int arr[], int l, int m, int r) {
-    int n1 = m - l + 1;
-    int n2 = r - m;
+void merge(int vetor[], int esquerda, int meio, int direita) {
+    int tamanhoEsquerda = meio - esquerda + 1;
+    int tamanhoDireita = direita - meio;
 
-    int L[n1], R[n2];
+    int vetorEsquerdo[tamanhoEsquerda], vetorDireito[tamanhoDireita];
 
-    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
-    for (int i = 0; i < n2; i++) R[i] = arr[m + 1 + i];
+    for (int i = 0; i < tamanhoEsquerda; i++) vetorEsquerdo[i] = vetor[esquerda + i];
+    for (int i = 0; i < tamanhoDireita; i++) vetorDireito[i] = vetor[meio + 1 + i];
 
-    int i = 0, j = 0, k = l;
+    int i = 0, j = 0, k = esquerda;
 
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) arr[k++] = L[i++];
-        else arr[k++] = R[j++];
+    while (i < tamanhoEsquerda && j < tamanhoDireita) {
+        if (vetorEsquerdo[i] <= vetorDireito[j]) vetor[k++] = vetorEsquerdo[i++];
+        else vetor[k++] = vetorDireito[j++];
     }
 
-    while (i < n1) arr[k++] = L[i++];
-    while (j < n2) arr[k++] = R[j++];
+    while (i < tamanhoEsquerda) vetor[k++] = vetorEsquerdo[i++];
+    while (j < tamanhoDireita) vetor[k++] = vetorDireito[j++];
 }
 
-void mergeSortRecursive(int arr[], int l, int r) {
-    if (l < r) {
-        int m = l + (r - l) / 2;
-        mergeSortRecursive(arr, l, m);
-        mergeSortRecursive(arr, m + 1, r);
-        merge(arr, l, m, r);
+void mergeSortRecursive(int vetor[], int esquerda, int direita) {
+    if (esquerda < direita) {
+        int meio = esquerda + (direita - esquerda) / 2;
+        mergeSortRecursive(vetor, esquerda, meio);
+        mergeSortRecursive(vetor, meio + 1, direita);
+        merge(vetor, esquerda, meio, direita);
     }
 }
 
-void mergeSort(int b[], int size) {
-    int a[size];
-    memcpy(a, b, size * sizeof(int));
+void mergeSort(int vetorOriginal[], int tamanho) {
+    int vetorCopia[tamanho];
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo MergeSort\n");
-    mergeSortRecursive(a, 0, size - 1);
-    exibir(a, size);
+    mergeSortRecursive(vetorCopia, 0, tamanho - 1);
+    exibir(vetorCopia, tamanho);
     puts("\nPressione ENTER para continuar..."); getchar();
 }
 
 // Funções auxiliares para QuickSort
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
+int partition(int vetor[], int baixo, int alto) {
+    int pivo = vetor[alto];
+    int i = baixo - 1;
+    for (int j = baixo; j < alto; j++) {
+        if (vetor[j] < pivo) {
             i++;
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            int temp = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j] = temp;
         }
     }
-    int temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
+    int temp = vetor[i + 1];
+    vetor[i + 1] = vetor[alto];
+    vetor[alto] = temp;
     return i + 1;
 }
 
-void quickSortRecursive(int arr[], int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSortRecursive(arr, low, pi - 1);
-        quickSortRecursive(arr, pi + 1, high);
+void quickSortRecursive(int vetor[], int baixo, int alto) {
+    if (baixo < alto) {
+        int pi = partition(vetor, baixo, alto);
+        quickSortRecursive(vetor, baixo, pi - 1);
+        quickSortRecursive(vetor, pi + 1, alto);
     }
 }
 
-void quickSort(int b[], int size) {
-    int a[size];
-    memcpy(a, b, size * sizeof(int));
+void quickSort(int vetorOriginal[], int tamanho) {
+    int vetorCopia[tamanho];
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo QuickSort\n");
-    quickSortRecursive(a, 0, size - 1);
-    exibir(a, size);
+    quickSortRecursive(vetorCopia, 0, tamanho - 1);
+    exibir(vetorCopia, tamanho);
     puts("\nPressione ENTER para continuar..."); getchar();
 }
 
 // Funções auxiliares para HeapSort
-void heapify(int arr[], int size, int i) {
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
+void heapify(int vetor[], int tamanho, int i) {
+    int maior = i;
+    int esquerda = 2 * i + 1;
+    int direita = 2 * i + 2;
 
-    if (l < size && arr[l] > arr[largest]) largest = l;
-    if (r < size && arr[r] > arr[largest]) largest = r;
+    if (esquerda < tamanho && vetor[esquerda] > vetor[maior]) maior = esquerda;
+    if (direita < tamanho && vetor[direita] > vetor[maior]) maior = direita;
 
-    if (largest != i) {
-        int temp = arr[i];
-        arr[i] = arr[largest];
-        arr[largest] = temp;
-        heapify(arr, size, largest);
+    if (maior != i) {
+        int temp = vetor[i];
+        vetor[i] = vetor[maior];
+        vetor[maior] = temp;
+        heapify(vetor, tamanho, maior);
     }
 }
 
-void heapSort(int b[], int size) {
-    int a[size];
-    memcpy(a, b, size * sizeof(int));
+void heapSort(int vetorOriginal[], int tamanho) {
+    int vetorCopia[tamanho];
+    memcpy(vetorCopia, vetorOriginal, tamanho * sizeof(int));
     puts("\nPasso a passo ordenacao com metodo HeapSort\n");
-    for (int i = size / 2 - 1; i >= 0; i--) heapify(a, size, i);
-    for (int i = size - 1; i > 0; i--) {
-        int temp = a[0];
-        a[0] = a[i];
-        a[i] = temp;
-        heapify(a, i, 0);
+    for (int i = tamanho / 2 - 1; i >= 0; i--) heapify(vetorCopia, tamanho, i);
+    for (int i = tamanho - 1; i > 0; i--) {
+        int temp = vetorCopia[0];
+        vetorCopia[0] = vetorCopia[i];
+        vetorCopia[i] = temp;
+        heapify(vetorCopia, i, 0);
     }
-    exibir(a, size);
+    exibir(vetorCopia, tamanho);
     puts("\nPressione ENTER para continuar..."); getchar();
 }
 
