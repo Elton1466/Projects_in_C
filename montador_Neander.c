@@ -1,29 +1,27 @@
 /*
-Este programa tem como objetivo transformar um arquivo de texto contendo instruções em Assembly 
-(escritas no formato compatível com o simulador Neander) em um arquivo binário no formato .mem. 
-Este arquivo gerado pode ser executado diretamente no simulador Neander.
-
-Requisitos para funcionamento:
-- O arquivo de texto deve estar salvo no mesmo diretório que o executável deste programa.
-- O arquivo de entrada deve ter a extensão .txt e conter apenas instruções em Assembly sem 
-  numeração de linhas.
-- Os valores de endereço devem estar em formato hexadecimal.
-- O arquivo gerado, denominado "prog1.mem", será salvo no mesmo diretório do programa e 
-  incluirá um cabeçalho fixo seguido das instruções em binário.
-
-Exemplo de entrada no arquivo .txt:
-
-LDA 80 
-NOT 
-ADD 81 
-STA 83 
-HLT
-
-Exemplo de saída no arquivo prog1.mem:
-- O binário gerado seguirá o formato adequado para ser executado no simulador Neander.
-
-Instruções de compilação:
-- Este código deve ser compilado com o DEV-C++ para evitar problemas de compatibilidade.
+* Este programa tem como objetivo transformar um arquivo de texto contendo instruções em Assembly 
+* (escritas no formato compatível com o simulador Neander) em um arquivo binário no formato .mem. 
+* Este arquivo gerado pode ser executado diretamente no simulador Neander.
+*
+* Requisitos para funcionamento:
+*   - O arquivo de texto deve estar salvo no mesmo diretório que o executável deste programa.
+*   - O arquivo de entrada deve ter a extensão .txt e conter apenas instruções em Assembly sem numeração de linhas.
+*    - Os valores de endereço devem estar em formato hexadecimal.
+*  - O arquivo gerado, denominado "prog1.mem", será salvo no mesmo diretório do programa e incluirá um cabeçalho fixo seguido das instruções em binário.
+*
+* Exemplo de entrada no arquivo .txt:
+*
+*  LDA 80 
+*  NOT 
+*  ADD 81 
+*  STA 83 
+*  HLT
+*
+* Exemplo de saída no arquivo prog1.mem:
+*  - O binário gerado seguirá o formato adequado para ser executado no simulador Neander.
+*
+* Instruções de compilação:
+*  - Este código deve ser compilado com o DEV-C++ para evitar problemas de compatibilidade.
 */
 
 #include <stdio.h>
