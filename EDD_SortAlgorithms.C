@@ -5,13 +5,12 @@
 #define TAM 7 
 
 /*
-Descrição:
-Este código é um programa em C que permite ao usuário criar um vetor de números inteiros e escolher entre diferentes métodos de ordenação para organizar os elementos do vetor. 
-Os métodos de ordenação implementados incluem BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort e HeapSort. O programa exibe o passo a passo da ordenação, 
-facilitando a compreensão do funcionamento de cada algoritmo.
-
-O código foi desenvolvido para fins educacionais e pode ser utilizado como referência para estudos sobre algoritmos de ordenação. 
-Sinta-se à vontade para contribuir, sugerir melhorias ou reportar problemas no repositório.
+* Descrição:
+* Este código é um programa em C que permite ao usuário criar um vetor de números inteiros e escolher entre diferentes métodos de ordenação para organizar os elementos do vetor. 
+* Os métodos de ordenação implementados incluem BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort e HeapSort. O programa exibe o passo a passo da ordenação, 
+* facilitando a compreensão do funcionamento de cada algoritmo.
+*
+* O código foi desenvolvido para fins educacionais e pode ser utilizado como referência para estudos sobre algoritmos de ordenação. 
 */
 
 int vetorA[TAM], vetorB[TAM];
