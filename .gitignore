@@ -1,0 +1,17 @@
+# Binarios gerados
+agenda_contatos
+algoritmos_ordenacao
+estruturas_fila_pilha
+montador_neander
+agenda
+sort_algorithms
+queue_stack
+
+# Arquivos de objeto e memoria
+*.o
+*.mem
+*.out
+*.exe
+
+# Arquivos de dados gerados em runtime
+ListaDeContatos.txt
